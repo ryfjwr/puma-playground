@@ -1,7 +1,11 @@
 require 'sinatra'
 require 'json'
+require 'logger'
 
-configure { set :server, :puma }
+configure do
+  set :server, :puma 
+  set :logger, Logger.new(STDOUT)
+end
 
 class Pumatra < Sinatra::Base
   get "/" do
